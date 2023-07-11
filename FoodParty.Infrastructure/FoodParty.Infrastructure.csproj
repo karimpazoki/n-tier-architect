@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoWrapper" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="MySqlConnector" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodParty.DomainLayer\FoodParty.DomainLayer.csproj" />
+    <ProjectReference Include="..\FoodParty.DataAccessLayer\FoodParty.DataAccessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Installers\" />
+  </ItemGroup>
+
+</Project>
