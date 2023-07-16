@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace FoodParty.DomainLayer.Contracts
 {
-    public interface IRepository<TEntity> where TEntity : class, IAggregateRoot
+    public interface IRepository<TEntity> where TEntity : class, IAggrigateRoot
     {
         bool DisposeContext { get; set; }
         IQueryable<TEntity> Query { get; }

@@ -8,13 +8,13 @@ namespace FoodParty.DomainLayer
 {
     public static class AppConstants
     {
-        public const int apikey = 2;
-        public const int PAGE_SIZE = 20;
+        public const int Apikey = 2;
+        public const int PageSize = 20;
         public record MessageTemplate
         {
-            public const string REQUIRED = "این {0} الزامی می باش";
-            public const string DATA_NOT_FOUND = "Not Found";
-            public const string VALIDATION_MESSAGE = "";
+            public const string Required = "این {0} الزامی می باش";
+            public const string DataNotFound = "Not Found";
+            public const string ValidationMessage = "";
         }
     }
 }

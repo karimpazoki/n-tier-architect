@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace FoodParty.DataAccessLayer
 {
-    public class EfCoreRepository<TEntity> : IDisposable, IRepository<TEntity> where TEntity : class, IAggregateRoot
+    public class EfCoreRepository<TEntity> : IDisposable, IRepository<TEntity> where TEntity : class, IAggrigateRoot
     {
         private bool _disposed;
 
