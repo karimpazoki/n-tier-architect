@@ -10,32 +10,32 @@ namespace Application.EndPoint.Api.Controllers
     [ApiController]
     public class DealProjectController : BaseApiController
     {
-        private readonly IDealProjectRule dealProjectRule;
+        private readonly IDealProjectRule _dealProjectRule;
 
         public DealProjectController(IDealProjectRule dealProjectRule)
         {
-            this.dealProjectRule = dealProjectRule;
+            this._dealProjectRule = dealProjectRule;
         }
 
         [HttpPost]
         public async Task<ApiResponse> Post([FromBody] DealProject entity, CancellationToken cancellationToken) =>
-            await ApiResponseAsync(() => dealProjectRule.InsertAsync(entity, cancellationToken));
+            await ApiResponseAsync(() => _dealProjectRule.InsertAsync(entity, cancellationToken));
 
         [HttpGet]
         public async Task<ApiResponse> Get(CancellationToken cancellationToken) =>
-            await ApiResponseAsync(() => dealProjectRule.GetAllAsync(cancellationToken));
+            await ApiResponseAsync(() => _dealProjectRule.GetAllAsync(cancellationToken));
         
         [HttpGet]
         [Route("{id:long}")]
         public async Task<ApiResponse> Show([FromRoute] long id, CancellationToken cancellationToken) =>
-            await ApiResponseAsync(() => dealProjectRule.GetByIdAsync(id,cancellationToken));
+            await ApiResponseAsync(() => _dealProjectRule.GetByIdAsync(id,cancellationToken));
         [HttpPut]
         public async Task<ApiResponse> Put([FromBody] DealProject entity, CancellationToken cancellationToken) =>
-            await ApiResponseAsync(() => dealProjectRule.UpdateAsync(entity, cancellationToken));
+            await ApiResponseAsync(() => _dealProjectRule.UpdateAsync(entity, cancellationToken));
 
         [HttpDelete]
         [Route("{id:long}")]
         public async Task<ApiResponse> Delete([FromRoute] long id, CancellationToken cancellationToken) =>
-          await ApiResponseAsync(() => dealProjectRule.DeleteAsync(id, cancellationToken));
+          await ApiResponseAsync(() => _dealProjectRule.DeleteAsync(id, cancellationToken));
     }
 }

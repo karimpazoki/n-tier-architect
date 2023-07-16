@@ -8,7 +8,7 @@ namespace FoodParty.DomainLayer.Exceptions
 {
     public class ValidationException : Exception
     {
-        public ValidationException() : base(AppConstants.MessageTemplate.VALIDATION_MESSAGE)
+        public ValidationException() : base(AppConstants.MessageTemplate.ValidationMessage)
         {
 
         }

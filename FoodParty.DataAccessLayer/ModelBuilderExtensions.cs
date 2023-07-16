@@ -12,40 +12,40 @@ namespace FoodParty.DataAccessLayer
 {
     public static class ModelBuilderExtensions
     {
-        private readonly static Func<ModelBuilder, ModelBuilderDecorator> modelBuilderFactory =
+        private readonly static Func<ModelBuilder, ModelBuilderDecorator> ModelBuilderFactory =
           (modelBuilder) => new ModelBuilderDecorator(modelBuilder);
-        public static void AutoAddDbSetClass<BaseType>(this ModelBuilder modelBuilder, params Assembly[] assemblies)
+        public static void AutoAddDbSetClass<TBaseType>(this ModelBuilder modelBuilder, params Assembly[] assemblies)
         {
-            modelBuilderFactory(modelBuilder).AddDbSetClass<BaseType>(assemblies);
+            ModelBuilderFactory(modelBuilder).AddDbSetClass<TBaseType>(assemblies);
         }
         public static void AddPluralizingTableNameConvention(this ModelBuilder modelBuilder)
         {
-            modelBuilderFactory(modelBuilder).AddPluralizingTableName();
+            ModelBuilderFactory(modelBuilder).AddPluralizingTableName();
         }
 
     }
     public class ModelBuilderDecorator
     {
-        private readonly ModelBuilder modelBuilder;
+        private readonly ModelBuilder _modelBuilder;
         public ModelBuilderDecorator(ModelBuilder modelBuilder)
         {
-            this.modelBuilder = modelBuilder;
+            this._modelBuilder = modelBuilder;
         }
-        public void AddDbSetClass<BaseType>(params Assembly[] assemblies)
+        public void AddDbSetClass<TBaseType>(params Assembly[] assemblies)
         {
             IEnumerable<Type> types = assemblies.SelectMany(e => e.GetExportedTypes())
-                .Where(e => e.IsClass && !e.IsAbstract && !e.IsSealed && e.IsPublic && typeof(BaseType).IsAssignableFrom(e));
+                .Where(e => e.IsClass && !e.IsAbstract && !e.IsSealed && e.IsPublic && typeof(TBaseType).IsAssignableFrom(e));
 
             foreach (var type in types)
             {
-                modelBuilder.Entity(type);
+                _modelBuilder.Entity(type);
             }
 
         }
         public void AddPluralizingTableName()
         {
             Pluralizer pluralizer = new Pluralizer();
-            foreach (IMutableEntityType entityType in modelBuilder.Model.GetEntityTypes())
+            foreach (IMutableEntityType entityType in _modelBuilder.Model.GetEntityTypes())
             {
                 string tableName = entityType.GetTableName();
                 entityType.SetTableName(pluralizer.Pluralize(tableName));

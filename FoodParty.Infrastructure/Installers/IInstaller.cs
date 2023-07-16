@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodParty.DomainLayer.Contracts
+namespace FoodParty.Infrastructure.Installers
 {
     public interface IInstaller
     {

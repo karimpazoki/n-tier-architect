@@ -1,5 +1,6 @@
 ﻿using FoodParty.DomainLayer.Contracts;
 using System.Reflection;
+using FoodParty.Infrastructure.Installers;
 
 namespace FoodParty.PresentationLayer.Installers
 {
@@ -15,10 +16,10 @@ namespace FoodParty.PresentationLayer.Installers
             installers.ForEach(installer => installer.InstallServices(services, configuration, provider));
         }
 
-        public static void InstallServicesFromCallinfAssembly(this IServiceCollection services, IConfiguration configuration, IServiceProvider provider)
-        {
-            InstallServicesFromAssembly(services, provider, Assembly.GetCallingAssembly(), configuration);
-        }
+        // public static void InstallServicesFromCallingAssembly(this IServiceCollection services, IConfiguration configuration, IServiceProvider provider)
+        // {
+        //     InstallServicesFromAssembly(services, provider, Assembly.GetCallingAssembly(), configuration);
+        // }
 
         public static void InstallServicesInAssemblies(this IServiceCollection services, IServiceProvider provider, IConfiguration configuration, params Assembly[] assemblies)
         {

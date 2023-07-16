@@ -1,5 +1,6 @@
 ﻿using FoodParty.DomainLayer;
 using FoodParty.DomainLayer.Contracts;
+using FoodParty.Infrastructure.Installers;
 
 namespace FoodParty.PresentationLayer.Installers
 {
@@ -9,9 +10,9 @@ namespace FoodParty.PresentationLayer.Installers
         {
             var env = provider.GetRequiredService<IWebHostEnvironment>();
 
-            if (env.EnvironmentName.Equals(Environments.Development))//Production
+            if (env.IsDevelopment())
             {
-                var settings = configuration.GetRequiredSection("AppSetting").Get<AppSetting>();
+                // var settings = configuration.GetRequiredSection("AppSetting").Get<AppSetting>();
                 services.AddSwaggerGen();
                 //services.AddSwaggerGen(c =>
                 //{

@@ -11,7 +11,7 @@ namespace FoodParty.DomainLayer
     public class AppSetting
     {
         public ConnectionString? ConnectionStrings { get; set; }
-        public DBConnectionType DbConnectionType { get; set; }
+        public DbConnectionType DbConnectionType { get; set; }
         
         public class ConnectionString
         {

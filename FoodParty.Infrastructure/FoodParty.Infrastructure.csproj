@@ -18,8 +18,4 @@
     <ProjectReference Include="..\FoodParty.DataAccessLayer\FoodParty.DataAccessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Installers\" />
-  </ItemGroup>
-
 </Project>

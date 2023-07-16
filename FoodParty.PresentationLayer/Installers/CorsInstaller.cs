@@ -1,4 +1,5 @@
 ﻿using FoodParty.DomainLayer.Contracts;
+using FoodParty.Infrastructure.Installers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

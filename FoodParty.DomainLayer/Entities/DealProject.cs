@@ -9,7 +9,7 @@ using FoodParty.DomainLayer.Enums;
 
 namespace FoodParty.DomainLayer.Entities
 {
-    public class DealProject : LongEntity ,ILoggableEntity
+    public sealed class DealProject : AggrigateRoot<long>, ILoggableEntity
     {
         [StringLength(100)]
         public string Title { get; set; }
@@ -23,6 +23,6 @@ namespace FoodParty.DomainLayer.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public ICollection<VendorSupertype> VendorSupertypes { get; set; }
+        // public ICollection<VendorSupertype> VendorSupertypes { get; set; }
     }
 }

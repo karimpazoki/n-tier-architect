@@ -1,5 +1,6 @@
 ﻿using FoodParty.DomainLayer;
 using FoodParty.DomainLayer.Contracts;
+using FoodParty.Infrastructure.Installers;
 using Microsoft.Extensions.Configuration;
 
 namespace FoodParty.PresentationLayer.Installers

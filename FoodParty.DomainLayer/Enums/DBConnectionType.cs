@@ -1,6 +1,6 @@
 namespace FoodParty.DomainLayer.Enums;
 
-public enum DBConnectionType
+public enum DbConnectionType
 {
     Mysql,
     SqlServer,

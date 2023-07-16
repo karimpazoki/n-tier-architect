@@ -8,10 +8,10 @@ namespace FoodParty.PresentationLayer.Controllers
     [Route("[controller]")]
     public class HomeController : Controller
     {
-        private readonly AppSetting configOption;
+        private readonly AppSetting _configOption;
         public HomeController(IOptions<AppSetting> options)
         {
-            configOption = options.Value;
+            _configOption = options.Value;
         }
         [HttpGet]
         public string Get()
